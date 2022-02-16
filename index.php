@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,47 +8,74 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-
-    <form action="" method="GET">
-
-<label for="country">Choose a country:</label>
-
-<select name="country" id="country">
-
-    <option> </option>
     
-  <option value="japan" name="input_1">Japan</option>
-  <option value="usa" name="input_2">usa</option>
-  <option value="uk" name="input_3">uk</option>
-  <option value="canada" name="input_4">canada</option>
+
+<h1>Converte from Euro</h1>
+<form action="" method="get">
+Enter Euro amount : <input type="text" name="input" class="amount" />
+Select Currency : 
+<select name="select_1">
+<option value="usa">Us Dollar</option>
+<option value="swiss">Swiss Franc</option>
+<option value="pound">British Pound</option>
+<option value="ca_dollar">Canadian Dollar</option>
+<option value="japan">Japanese Yen</option>
+
 </select>
-    <input type="submit">
-
+<input type="submit" name="sbmt" value="Convert" class="button" />
 </form>
-
-</div>
-    
 </body>
 </html>
 
 
+
+
+
+
+
 <?php
 
-//var_dump($_GET);
+if(isset($_GET["sbmt"]))
+ {
+  $cc_input = $_GET["input"];
+  $select_1 = $_GET['select_1'];
+  
+  if($select_1 == "usa")
+  {
+   $output = $cc_input * 1.14;
+   echo"<br>";
+   echo "<h3>" .$output . " Dollar" . "</h3>";
+  }
+  else if($select_1 == "swiss")
+  {
+   $output = $cc_input * 1.05;
+   echo"<br>";
+   echo "<h3>" . $output. " Swiss franc" . "</h3>";
+  }
+  else if($select_1 == "pound")
+  {
+   $output = $cc_input * 0.84;
+   echo"<br>";
+   echo "<h3>" . $output . " Pound Sterling" . "</h3>";
+   
+  }elseif($select_1== "ca_dollar"){
+      $output = $cc_input * 1.44;
+      echo"<br>";
+      echo "<h3>" . $output . " Canadian Dollars". "<h3>";
 
-if(empty($_GET)){
-    echo "select the country to get the info..";
-}elseif
-    ($_GET["country"]=="japan"){
-        echo "currency to euro is 1.05";
-}elseif($_GET["country"]=="usa"){
-        echo "currency to euro is 0.85";
-}elseif($_GET["country"]=="uk"){
-    echo "currency to euro is 1.80";
-}else{
-    echo"you must select a country to get INFO !!";
-};
+  }elseif($select_1== "japan"){
+    $output = $cc_input * 131.53;
+    echo"<br>";
+    echo "<h3>" . $output . " Japanese Yen ". "<h3>";
+ };
+}
+ ?>
+
+ 
+
+
+
+
 
 
     
