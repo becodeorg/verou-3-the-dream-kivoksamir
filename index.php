@@ -30,16 +30,25 @@ Select Currency :
 
 
 
-
-
-
 <?php
+
 
 if(isset($_GET["sbmt"]))
  {
   $cc_input = $_GET["input"];
   $select_1 = $_GET['select_1'];
-  
+
+  if(empty($cc_input)){
+
+    $cc_input=0;
+    echo "you have to add an amount ";
+      
+
+  }
+
+
+ 
+
   if($select_1 == "usa")
   {
    $output = $cc_input * 1.14;
@@ -68,6 +77,7 @@ if(isset($_GET["sbmt"]))
     echo"<br>";
     echo "<h3>" . $output . " Japanese Yen ". "<h3>";
  };
+
 }
  ?>
 
